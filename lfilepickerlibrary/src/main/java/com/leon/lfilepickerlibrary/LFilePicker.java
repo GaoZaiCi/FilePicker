@@ -1,11 +1,13 @@
 package com.leon.lfilepickerlibrary;
 
-import android.app.Activity;
-import android.app.Fragment;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.StyleRes;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.StyleRes;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import com.leon.lfilepickerlibrary.model.ParamEntity;
 import com.leon.lfilepickerlibrary.ui.LFilePickerActivity;
@@ -15,9 +17,9 @@ import com.leon.lfilepickerlibrary.ui.LFilePickerActivity;
  * 时间：2017/3/20 16:57
  */
 public class LFilePicker {
-    private Activity mActivity;
+    private AppCompatActivity mActivity;
     private Fragment mFragment;
-    private android.support.v4.app.Fragment mSupportFragment;
+    private Fragment mSupportFragment;
     private String mTitle;
     private String mTitleColor;
     private int theme = R.style.LFileTheme;
@@ -39,10 +41,10 @@ public class LFilePicker {
     /**
      * 绑定Activity
      *
-     * @param activity
-     * @return
+     * @param activity Activity
+     * @return LFilePicker
      */
-    public LFilePicker withActivity(Activity activity) {
+    public LFilePicker withActivity(AppCompatActivity activity) {
         this.mActivity = activity;
         return this;
     }
@@ -50,8 +52,8 @@ public class LFilePicker {
     /**
      * 绑定Fragment
      *
-     * @param fragment
-     * @return
+     * @param fragment Fragment
+     * @return LFilePicker
      */
     public LFilePicker withFragment(Fragment fragment) {
         this.mFragment = fragment;
@@ -61,10 +63,10 @@ public class LFilePicker {
     /**
      * 绑定v4包Fragment
      *
-     * @param supportFragment
-     * @return
+     * @param supportFragment Fragment
+     * @return LFilePicker
      */
-    public LFilePicker withSupportFragment(android.support.v4.app.Fragment supportFragment) {
+    public LFilePicker withSupportFragment(Fragment supportFragment) {
         this.mSupportFragment = supportFragment;
         return this;
     }
@@ -73,8 +75,8 @@ public class LFilePicker {
     /**
      * 设置主标题
      *
-     * @param title
-     * @return
+     * @param title 标题
+     * @return LFilePicker
      */
     public LFilePicker withTitle(String title) {
         this.mTitle = title;
@@ -84,8 +86,8 @@ public class LFilePicker {
     /**
      * 设置标题颜色
      *
-     * @param color
-     * @return
+     * @param color 颜色
+     * @return LFilePicker
      */
     @Deprecated
     public LFilePicker withTitleColor(String color) {
@@ -96,8 +98,8 @@ public class LFilePicker {
     /**
      * 设置主题
      *
-     * @param theme
-     * @return
+     * @param theme 主题
+     * @return LFilePicker
      */
     public LFilePicker withTheme(@StyleRes int theme) {
         this.theme = theme;

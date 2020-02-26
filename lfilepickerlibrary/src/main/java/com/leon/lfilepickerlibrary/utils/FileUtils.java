@@ -1,12 +1,9 @@
 package com.leon.lfilepickerlibrary.utils;
 
-import android.util.Log;
-
 import java.io.File;
 import java.io.FileFilter;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;

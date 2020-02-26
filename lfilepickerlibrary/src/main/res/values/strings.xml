@@ -11,4 +11,5 @@
     <string name="lfile_Cancel">Cancel</string>
     <string name="lfile_OK">OK</string>
     <string name="lfile_ChooseTip">Please select folders path</string>
+    <string name="lfile_SelecteAll">All</string>
 </resources>

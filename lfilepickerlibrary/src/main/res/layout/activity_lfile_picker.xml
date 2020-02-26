@@ -7,13 +7,14 @@
     android:background="@color/lfile_white"
     tools:context=".ui.LFilePickerActivity">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
         android:background="?attr/colorPrimary"
         android:minHeight="?android:attr/actionBarSize"
         app:navigationIcon="?attr/navigationIcon" />
+
     <LinearLayout
         android:id="@+id/layout_path"
         android:layout_width="match_parent"
@@ -27,10 +28,10 @@
             android:id="@+id/tv_path"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
             android:layout_weight="1"
             android:ellipsize="middle"
-            android:gravity="left|center"
+            android:gravity="start|center"
             android:singleLine="true"
             android:textSize="14sp" />
 
@@ -41,12 +42,13 @@
             android:layout_gravity="center_vertical"
             android:background="@drawable/lfile_back_bg"
             android:clickable="true"
-            android:drawableLeft="@mipmap/lfile_up"
+            android:drawableStart="@mipmap/lfile_up"
             android:drawablePadding="4dp"
             android:gravity="center"
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
-            android:text="@string/lfile_UpOneLevel" />
+            android:text="@string/lfile_UpOneLevel"
+            android:focusable="true" />
     </LinearLayout>
 
     <Button

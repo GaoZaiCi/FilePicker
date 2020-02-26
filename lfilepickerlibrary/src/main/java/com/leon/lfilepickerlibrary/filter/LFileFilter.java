@@ -20,12 +20,12 @@ public class LFileFilter implements FileFilter {
             return true;
         }
         if (mTypes != null && mTypes.length > 0) {
-            for (int i = 0; i < mTypes.length; i++) {
-                if (file.getName().endsWith(mTypes[i].toLowerCase()) || file.getName().endsWith(mTypes[i].toUpperCase())) {
+            for (String mType : mTypes) {
+                if (file.getName().endsWith(mType.toLowerCase()) || file.getName().endsWith(mType.toUpperCase())) {
                     return true;
                 }
             }
-        }else {
+        } else {
             return true;
         }
         return false;

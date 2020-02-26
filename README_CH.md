@@ -54,7 +54,7 @@
 ### 快速使用
 #### 1. 添加引用
 
-    compile 'com.leon:lfilepickerlibrary:1.8.0'
+    implementation 'com.leon:lfilepickerlibrary:1.8.0'
 
 #### 2. 添加文件读写权限
 

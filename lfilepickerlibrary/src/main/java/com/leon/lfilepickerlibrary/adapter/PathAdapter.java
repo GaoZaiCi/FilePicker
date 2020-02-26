@@ -1,7 +1,6 @@
 package com.leon.lfilepickerlibrary.adapter;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
@@ -10,12 +9,16 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.leon.lfilepickerlibrary.R;
 import com.leon.lfilepickerlibrary.utils.Constant;
 import com.leon.lfilepickerlibrary.utils.FileUtils;
 
 import java.io.File;
 import java.io.FileFilter;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -52,11 +55,11 @@ public class PathAdapter extends RecyclerView.Adapter<PathAdapter.PathViewHolder
         mCheckedFlags = new boolean[mListData.size()];
     }
 
+    @NonNull
     @Override
-    public PathViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public PathViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = View.inflate(mContext, R.layout.lfile_listitem, null);
-        PathViewHolder pathViewHolder = new PathViewHolder(view);
-        return pathViewHolder;
+        return new PathViewHolder(view);
     }
 
     @Override
@@ -65,7 +68,7 @@ public class PathAdapter extends RecyclerView.Adapter<PathAdapter.PathViewHolder
     }
 
     @Override
-    public void onBindViewHolder(final PathViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final PathViewHolder holder, final int position) {
         final File file = mListData.get(position);
         if (file.isFile()) {
             updateFileIconStyle(holder.ivType);
@@ -77,7 +80,7 @@ public class PathAdapter extends RecyclerView.Adapter<PathAdapter.PathViewHolder
             holder.tvName.setText(file.getName());
             //文件大小过滤
             List files = FileUtils.getFileList(file.getAbsolutePath(), mFileFilter, mIsGreater, mFileSize);
-            if (files == null) {
+            if (files.size() == 0) {
                 holder.tvDetail.setText("0 " + mContext.getString(R.string.lfile_LItem));
             } else {
                 holder.tvDetail.setText(files.size() + " " + mContext.getString(R.string.lfile_LItem));
@@ -171,10 +174,7 @@ public class PathAdapter extends RecyclerView.Adapter<PathAdapter.PathViewHolder
      * @param isAllSelected
      */
     public void updateAllSelelcted(boolean isAllSelected) {
-
-        for (int i = 0; i < mCheckedFlags.length; i++) {
-            mCheckedFlags[i] = isAllSelected;
-        }
+        Arrays.fill(mCheckedFlags, isAllSelected);
         notifyDataSetChanged();
     }
 
@@ -185,13 +185,13 @@ public class PathAdapter extends RecyclerView.Adapter<PathAdapter.PathViewHolder
         private TextView tvDetail;
         private CheckBox cbChoose;
 
-        public PathViewHolder(View itemView) {
+        PathViewHolder(View itemView) {
             super(itemView);
-            ivType = (ImageView) itemView.findViewById(R.id.iv_type);
-            layoutRoot = (RelativeLayout) itemView.findViewById(R.id.layout_item_root);
-            tvName = (TextView) itemView.findViewById(R.id.tv_name);
-            tvDetail = (TextView) itemView.findViewById(R.id.tv_detail);
-            cbChoose = (CheckBox) itemView.findViewById(R.id.cb_choose);
+            ivType = itemView.findViewById(R.id.iv_type);
+            layoutRoot = itemView.findViewById(R.id.layout_item_root);
+            tvName = itemView.findViewById(R.id.tv_name);
+            tvDetail = itemView.findViewById(R.id.tv_detail);
+            cbChoose = itemView.findViewById(R.id.cb_choose);
         }
     }
 }

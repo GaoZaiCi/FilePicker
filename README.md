@@ -43,7 +43,7 @@ This is a lightweight file selector, it can select files by retrieve phone direc
 
 ### Quick to use
 #### 1. add reference
-    compile 'com.leon:lfilepickerlibrary:1.8.0'
+    implementation 'com.leon:lfilepickerlibrary:1.8.0'
 
 #### 2. add permission
 
